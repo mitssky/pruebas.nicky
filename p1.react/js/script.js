@@ -1,19 +1,21 @@
 const boton = document.getElementById('btn-generar');
 const inputJuego = document.getElementById('juego');
 const inputCalificacion = document.getElementById('calificacion');
-const textoresultado = document.getElementById('resultado');
+const textoResultado = document.getElementById('resultado');
 
 const obtenerVeredicto = (nota) => {
-    if (nota >= 8) {
+     if (nota >= 8) {
         return "¡Literalmente una obra maestra, es cine!";
     } else if (nota >= 5) {
         return "Decente, sirve para pasar el rato :/";
-    } else if (nota >= 4) {
-        return "Niñe, mejor nada!";
+    } else if (nota >= 6) {
+        return "Tío, busca algo mejor o, nada!";
     } else {
         return "Que borre la cuenta mejor x_x";
-    }
-}
+    } 
+};
+
+
 boton.addEventListener('click', () => {
     let nombreJuego = inputJuego.value;
     let nota = Number(inputCalificacion.value);
