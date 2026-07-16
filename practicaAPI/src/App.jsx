@@ -9,13 +9,13 @@ useEffect(() => {
 // Función asíncrona para consumir la API
 const obtenerDatos = async () => {
 try {
-const respuesta = await fetch('https://rickandmortyapi.com/api/character?page=1');
+const respuesta = await fetch('https://api.disneyapi.dev/character');
 if (!respuesta.ok) {
 throw new Error('No se pudo conectar con el servidor de la API');
 }
 
 const datos = await respuesta.json();
-setPersonajes(datos.results.slice(0, 15)); // Guardamos solo los primeros 8 personajes
+setPersonajes(datos.data.slice(0, 15)); // Guardamos solo los primeros 8 personajes
 setCargando(false); // Apagamos el estado de carga
 } catch (err) {
 setError(err.message);
@@ -36,16 +36,16 @@ return (
 {/* Renderizado de Tarjetas Dinámicas */}
 <div className="grid-personajes">
 {personajes.map((personaje) => (
-<div key={personaje.id} className="card">
+<div key={personaje._id} className="card">
 <img src={personaje.image} alt={personaje.name} />
 <div className="card-info">
 <h3>{personaje.name}</h3>
-<p>
+{/*<p>
 <span className={`status-dot ${personaje.status.toLowerCase()}`}></span>
 {personaje.status}- {personaje.species}
 </p>
 <small>Última ubicación conocida:</small>
-<p className="location">{personaje.location.name}</p>
+<p className="location">{personaje.location.name}</p>*/}
 </div>
 </div>
 ))}
